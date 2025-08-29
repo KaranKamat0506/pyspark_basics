@@ -33,7 +33,7 @@ For each match, find the next day’s runs using lead and calculate the differen
 from pyspark.sql import SparkSession, Window
 from pyspark.sql.functions import lead, col
 
-from test_pyspark.pysparkq3 import window_spec
+from pyspark_questions.pysparkq3 import window_spec
 
 spark = SparkSession.builder.appName("test").getOrCreate()
 
