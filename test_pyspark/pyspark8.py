@@ -2,7 +2,10 @@
 from pyspark.sql import SparkSession, Window
 from pyspark.sql.functions import row_number, dense_rank, rank
 
-spark=SparkSession.builder.getOrCreate()
+spark=SparkSession.builder \
+    .appName("PysparkLocalDemo") \
+    .master("local[*]") \
+    .getOrCreate()
 
 data = [
     ("A", "Maths", 90),
