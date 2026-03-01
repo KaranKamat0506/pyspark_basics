@@ -32,5 +32,5 @@ df.show()
 df.printSchema()
 
 window_spec=Window.partitionBy("stock_symbol").orderBy("trade_date")
-df_closing_price=df.withColumn("yesterdays_price",lag(col("close_price"),1).over(window_spec))
+df_closing_price=df.withColumn("yesterdays_price",lag(col("close_price")).over(window_spec))
 df_closing_price.show()
