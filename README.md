@@ -146,12 +146,6 @@ df.show()
 
 ---
 
-## 🤝 Contributing
-
-This is primarily a personal learning repo, but suggestions and improvements are welcome! Feel free to open an issue or submit a pull request.
-
----
-
 ## 👤 Author
 
 **Karan Kamat**
