@@ -28,7 +28,10 @@ pyspark_basics/
 │
 ├── parquetFileOperations/       # Reading, writing, and querying Parquet files
 │
+├── partitioning_bucketing/       # Reading, writing, and querying Parquet files
+│
 └── readFromJson/                # Loading and processing JSON data with PySpark
+
 ```
 
 ---
