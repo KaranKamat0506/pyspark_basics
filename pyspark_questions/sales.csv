@@ -1,0 +1,17 @@
+region,product,sales_amount,sales_date
+North,Mobile,25000.50,2025-01-05
+South,Laptop,55000.00,2025-01-06
+East,Tablet,15000.75,2025-01-07
+West,Mobile,30000.00,2025-01-08
+North,Laptop,62000.25,2025-01-09
+South,Tablet,12000.00,2025-01-10
+East,Mobile,27000.80,2025-01-11
+West,Laptop,58000.40,2025-01-12
+North,Tablet,14000.00,2025-01-13
+South,Mobile,26000.60,2025-01-14
+East,Laptop,61000.10,2025-01-15
+West,Tablet,13000.90,2025-01-16
+North,Mobile,29000.00,2025-01-17
+South,Laptop,57000.30,2025-01-18
+East,Tablet,16000.20,2025-01-19
+West,Mobile,31000.50,2025-01-20
