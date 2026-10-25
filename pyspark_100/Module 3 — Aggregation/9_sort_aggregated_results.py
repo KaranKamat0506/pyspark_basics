@@ -19,3 +19,10 @@ data = [
 columns = ["employee_id", "name", "department", "salary"]
 
 df = spark.createDataFrame(data, columns)
+
+result = df.groupBy("department") \
+    .agg(
+    F.avg("salary").alias("average_salary")
+).orderBy(F.desc("average_salary"))
+
+result.show()
