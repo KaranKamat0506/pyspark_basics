@@ -1,119 +1,372 @@
-Module 1 — Fundamentals
-- [ ] 1. Create a DataFrame: Create a DataFrame from a list of tuples.
-- [ ] 2. Display records: Show the first 5 records.
-- [ ] 3. Inspect schema: Print column names and data types.
-- [ ] 4. Count records: Find the total number of rows.
-- [ ] 5. Count columns: Find the number of columns.
-- [ ] 6. Rename a column: Rename `name` to `emp_name`.
-- [ ] 7. Add a column: Add a column `country` with value India.
-- [ ] 8. Drop a column: Remove the `city` column.
-- [ ] 9. Change data type: Convert salary from string to integer.
-- [ ] 10. Select columns: Display only employee name and salary.
+# PySpark 100 Problems --- Complete Learning Roadmap
 
-Module 2 — Filtering and sorting
-- [ ] 11. Filter salary: Find employees earning more than 60000.
-- [ ] 12. Multiple conditions: Find IT employees earning above 50000.
-- [ ] 13. OR condition: Find employees in HR or Finance.
-- [ ] 14. Filter cities: Find employees living in Pune or Mumbai.
-- [ ] 15. Exclude a value: Find employees not in the IT department.
-- [ ] 16. Sort ascending: Sort employees by salary, lowest first.
-- [ ] 17. Sort descending: Sort employees by salary, highest first.
-- [ ] 18. Distinct values: List unique department names.
-- [ ] 19. Distinct records: Remove completely duplicate rows.
-- [ ] 20. Top records: Find the 3 highest-paid employees.
+A practical, hands-on learning roadmap for developing PySpark skills
+used in Data Engineering workflows and technical interviews.
 
-Module 3 — Aggregations
-- [ ] 21. Count by department: Count employees in each department.
-- [ ] 22. Average salary: Calculate the average salary per department.
-- [ ] 23. Maximum salary: Find the highest salary per department.
-- [ ] 24. Minimum salary: Find the lowest salary per department.
-- [ ] 25. Total payroll: Calculate total salary per department.
-- [ ] 26. Multiple aggregates: Find count, average, minimum and maximum salary by department.
-- [ ] 27. Conditional count: Count employees earning above 60000 per department.
-- [ ] 28. Filter groups: Find departments with more than 2 employees.
-- [ ] 29. Filter average: Find departments whose average salary exceeds 55000.
-- [ ] 30. Salary range: Calculate max salary minus min salary per department.
+The curriculum moves from DataFrame fundamentals to advanced
+transformations, ETL design, file processing, performance optimization,
+Spark concepts, and integrated interview-style exercises.
 
-Module 4 — Joins
-- [ ] 31. Inner join: Join employee and department DataFrames.
-- [ ] 32. Left join: Keep all employees even if a department match is missing.
-- [ ] 33. Right join: Keep all department records.
-- [ ] 34. Full outer join: Return matched and unmatched records from both sides.
-- [ ] 35. Left anti join: Find employees without a matching department.
-- [ ] 36. Left semi join: Find employees with a matching department.
-- [ ] 37. Join on multiple keys: Join using employee ID and department.
-- [ ] 38. Find unmatched records: Identify source records missing from the target.
-- [ ] 39. Avoid duplicate columns: Join two DataFrames with overlapping column names.
-- [ ] 40. Join and aggregate: Calculate total orders per customer after joining customers and orders.
+## Learning Environment
 
-Module 5 — Conditions, strings, dates and nulls
-- [ ] 41. Salary category: Label salaries as High, Medium or Low using `when`.
-- [ ] 42. Multiple conditions: Classify employees based on department and salary.
-- [ ] 43. Handle nulls: Replace missing values using `fillna`.
-- [ ] 44. Filter nulls: Find records with a missing salary.
-- [ ] 45. Coalesce values: Use a backup email when the primary email is null.
-- [ ] 46. String cleanup: Trim spaces and standardize employee names.
-- [ ] 47. Substring: Extract a portion of a string column.
-- [ ] 48. Date difference: Calculate days between two dates.
-- [ ] 49. Extract date parts: Extract year and month from a date.
-- [ ] 50. Conditional aggregation: Calculate the count of high-salary employees per department.
+-   **Language:** Python
+-   **Framework:** Apache Spark / PySpark
+-   **Development environment:** PyCharm (local setup)
+-   **PySpark version:** 3.5.1
+-   **Python executable:** `C:\python\python.exe`
+-   **Spark distribution:** `C:\spark\spark-3.5.1-bin-hadoop3`
+-   **Java:** 18.0.2
 
-Module 6 — Window functions
-- [ ] 51. Row numbering: Number employees by salary within each department.
-- [ ] 52. Rank salaries: Rank employees by salary within each department.
-- [ ] 53. Dense ranking: Assign ranks without gaps when salaries tie.
-- [ ] 54. Highest salary: Find the highest-paid employee in each department.
-- [ ] 55. Second-highest salary: Find the second-highest distinct salary per department.
-- [ ] 56. Top 2 employees: Return the top 2 employees per department.
-- [ ] 57. Nth-highest salary: Find the third-highest distinct salary per department.
-- [ ] 58. Previous salary: Use `lag` to retrieve the previous row's salary.
-- [ ] 59. Next salary: Use `lead` to retrieve the next row's salary.
-- [ ] 60. Salary comparison: Find employees earning more than the previous row.
-- [ ] 61. Department average: Show each employee alongside the department average.
-- [ ] 62. Difference from average: Calculate salary minus department average.
-- [ ] 63. Running total: Calculate cumulative salary by department.
-- [ ] 64. First and last value: Find the first and last salary in each department.
-- [ ] 65. Salary changes: Compare each employee's monthly salary with their previous month's salary.
+All coding exercises are designed for local PySpark. Examples use
+`SparkSession`, DataFrame APIs, and `.show()` to inspect results.
 
-Module 7 — Deduplication and data quality
-- [ ] 66. Find duplicate keys: Identify employee IDs appearing more than once.
-- [ ] 67. Keep latest record: Keep the latest row per ID using `row_number`.
-- [ ] 68. Duplicate salary groups: Find employees sharing the same salary within a department.
-- [ ] 69. Null quality report: Count nulls in important columns.
-- [ ] 70. Validate ranges: Find negative or implausible salary values.
-- [ ] 71. Detect duplicate events: Identify duplicate event IDs.
-- [ ] 72. Deduplicate by business key: Keep one record per customer using update timestamp.
-- [ ] 73. Conflicting duplicates: Find IDs whose duplicate rows contain different values.
-- [ ] 74. Required-field validation: Separate valid rows from rows missing required fields.
-- [ ] 75. Data quality summary: Produce row count, duplicate count and null count.
+------------------------------------------------------------------------
 
-Module 8 — ETL, CDC and SCD
-- [ ] 76. Source-target comparison: Find source records missing from the target.
-- [ ] 77. Find new records: Identify source keys that don't exist in the target.
-- [ ] 78. Find deleted records: Identify target keys missing from a complete source snapshot.
-- [ ] 79. Find updated records: Detect matching keys whose attributes changed.
-- [ ] 80. Compare multiple columns: Detect changes across several attributes.
-- [ ] 81. Build an incremental load: Filter records using a last-updated timestamp.
-- [ ] 82. SCD Type 1: Overwrite changed attributes while retaining new records.
-- [ ] 83. SCD Type 2: Expire the old version and insert a new version.
-- [ ] 84. Idempotent processing: Design a rerunnable load without duplicate inserts.
-- [ ] 85. CDC event ordering: Handle multiple changes for one key and select the latest valid event.
+# Core PySpark Curriculum
 
-Module 9 — Reading and writing data
-- [ ] 86. Read CSV: Read CSV with headers and an explicit schema.
-- [ ] 87. Read JSON: Load nested JSON records.
-- [ ] 88. Write Parquet: Write a DataFrame to Parquet.
-- [ ] 89. Write modes: Explain and demonstrate append, overwrite, error and ignore.
-- [ ] 90. Partitioned output: Write data partitioned by department or date.
+## Module 1 --- PySpark Fundamentals
 
-Module 10 — Performance
-- [ ] 91. Repartition: Change the number of partitions using `repartition`.
-- [ ] 92. Coalesce: Reduce partitions using `coalesce`.
-- [ ] 93. Broadcast join: Join a large DataFrame with a small lookup DataFrame.
-- [ ] 94. Cache data: Cache a DataFrame reused by multiple actions.
-- [ ] 95. Avoid unnecessary shuffle: Compare `reduceByKey`-style thinking with grouping/shuffling concepts.
-- [ ] 96. Data skew: Identify and explain a key causing uneven task durations.
-- [ ] 97. Explain execution plan: Use `explain()` to inspect a query plan.
-- [ ] 98. Optimize file sizes: Explain why thousands of tiny output files can be problematic.
-- [ ] 99. Reduce data early: Push filters and select only needed columns before a join.
-- [ ] 100. Debug slow jobs: Investigate slow stages, shuffles and uneven partitions.
+**Problems 1--10**
+
+Learn how to create, inspect, and modify PySpark DataFrames.
+
+Topics:
+
+-   Creating DataFrames from Python collections
+-   Defining column names and schemas
+-   Displaying records with `show()`
+-   Inspecting schemas with `printSchema()`
+-   Counting rows and columns
+-   Selecting columns
+-   Renaming columns with `withColumnRenamed()`
+-   Adding columns with `withColumn()` and `lit()`
+-   Dropping columns with `drop()`
+-   Casting columns to appropriate data types
+-   Converting string values to dates
+
+## Module 2 --- Filtering and Sorting
+
+**Problems 11--20**
+
+Learn how to retrieve records that satisfy specific conditions and
+arrange the results.
+
+Topics:
+
+-   Filtering with `filter()` and `where()`
+-   Comparison operators
+-   Combining conditions with `&` and `|`
+-   Negating conditions with `~`
+-   Applying multiple filter conditions
+-   Sorting with `orderBy()` and `sort()`
+-   Ascending and descending order
+-   Sorting by multiple columns
+-   Limiting output with `limit()`
+
+## Module 3 --- Aggregations and GROUP BY
+
+**Problems 21--31**
+
+Learn how to summarize records and calculate metrics at different
+grouping levels.
+
+Topics:
+
+-   Grouping records with `groupBy()`
+-   `count()`
+-   `sum()`
+-   `avg()`
+-   `max()` and `min()`
+-   Multiple aggregations with `agg()`
+-   Grouping by multiple columns
+-   Filtering aggregated results (HAVING-style logic)
+-   Sorting aggregated results
+-   Combining grouping, aggregation, and filtering
+
+## Module 4 --- Joins
+
+**Problems 32--40**
+
+Learn how to combine DataFrames using common keys and understand the
+behavior of different join types.
+
+Topics:
+
+-   Inner Join
+-   Left Join
+-   Right Join
+-   Full Outer Join
+-   Left Anti Join
+-   Left Semi Join
+-   Joining on multiple columns
+-   Handling duplicate column names after joins
+-   Self Join
+-   Understanding which records are retained by each join type
+
+## Module 5 --- Conditions, Strings, Dates and NULL Handling
+
+**Problems 41--50**
+
+Learn how to build conditional transformations and clean common
+data-quality issues.
+
+Topics:
+
+-   Conditional columns with `when()` and `otherwise()`
+-   Multiple conditional branches
+-   String functions
+-   Trimming whitespace with `trim()`
+-   Replacing patterns with `regexp_replace()`
+-   String extraction with `substring()`
+-   Date conversion and date functions
+-   Date differences with `datediff()`
+-   Handling NULL values
+-   Removing NULL records with `dropna()`
+-   Replacing or filling NULL values
+-   Using `coalesce()` for fallback values
+-   Conditional NULL handling
+
+## Module 6 --- Window Functions
+
+**Problems 51--65**
+
+Learn how to perform calculations across related rows while retaining
+the individual records in a DataFrame.
+
+Topics:
+
+-   Window specifications
+-   `Window.partitionBy()`
+-   `Window.orderBy()`
+-   Applying functions with `.over()`
+-   Difference between `groupBy()` and window functions
+-   `row_number()`
+-   `rank()` and `dense_rank()`
+-   `lag()` and `lead()`
+-   Running totals
+-   Running averages
+-   `first_value()` and `last_value()`
+-   Window-based maximum and minimum
+-   Top N records per group
+-   Highest salary per department
+-   Second-highest distinct value per group
+-   Deduplication using window functions
+-   Combining multiple window functions
+
+## Module 7 --- Deduplication and Data Quality
+
+**Problems 66--75**
+
+Learn how to identify duplicate records, apply business rules to retain
+valid records, and validate incoming data.
+
+Topics:
+
+-   Identifying duplicate records
+-   Removing duplicates with `dropDuplicates()`
+-   Understanding the limitations of `dropDuplicates()`
+-   Retaining the latest record using window functions
+-   Retaining the earliest record using window functions
+-   Handling duplicate business keys
+-   Checking mandatory columns for NULL values
+-   Validating data types and column values
+-   Applying data-quality rules
+-   Finding invalid records
+-   Separating valid and rejected records
+-   Building reusable data-quality checks
+
+## Module 8 --- ETL, Incremental Processing, CDC and SCD
+
+**Problems 76--85**
+
+Learn how to implement common Data Engineering transformation patterns.
+
+Topics:
+
+-   Understanding source-to-target ETL flow
+-   Comparing source and target DataFrames
+-   Identifying new records
+-   Identifying changed records
+-   Identifying unchanged records
+-   Implementing insert logic
+-   Implementing update logic
+-   Incremental data processing
+-   Change Data Capture (CDC) concepts and transformations
+-   Handling insert, update, and delete events
+-   Slowly Changing Dimensions (SCD)
+-   Implementing SCD Type 1
+-   Implementing SCD Type 2
+-   Maintaining effective dates and current-record indicators
+-   Designing idempotent processing logic
+
+## Module 9 --- Reading and Writing Data
+
+**Problems 86--90**
+
+Learn how to read data from common file formats and write transformed
+DataFrames to storage.
+
+Topics:
+
+-   Reading CSV files
+-   Reading JSON files
+-   Reading Parquet files
+-   Defining and applying schemas
+-   Inferring schemas
+-   Handling headers and delimiters
+-   Write modes: append, overwrite, ignore, and error
+-   Writing DataFrames to CSV, JSON, and Parquet
+-   Partitioned output
+-   Understanding the effect of partition columns on output files
+
+## Module 10 --- PySpark Performance Optimization
+
+**Problems 91--100**
+
+Learn how Spark executes transformations and how to improve the
+efficiency of PySpark jobs.
+
+Topics:
+
+-   Narrow and wide transformations
+-   Lazy evaluation
+-   Understanding shuffle operations
+-   Using `repartition()`
+-   Using `coalesce()`
+-   Broadcast joins
+-   Caching and persistence
+-   Understanding data skew
+-   Reducing unnecessary shuffles
+-   Choosing appropriate partition counts
+-   Optimizing joins and aggregations
+-   Reading and interpreting execution plans with `explain()`
+-   Practical Spark job optimization considerations
+
+------------------------------------------------------------------------
+
+# Additional Learning Modules
+
+These modules complement the 100-problem coding curriculum with Spark
+internals and interview preparation.
+
+## Module 11 --- Spark Architecture and Core Concepts
+
+Understand how Apache Spark works internally and how a PySpark
+application is executed.
+
+Topics:
+
+-   Apache Spark overview and components
+-   Driver and Executor
+-   Cluster Manager
+-   SparkSession and SparkContext
+-   Jobs, stages, and tasks
+-   DAG (Directed Acyclic Graph)
+-   Transformations and actions
+-   Lazy evaluation
+-   Logical and physical execution plans
+-   Catalyst Optimizer
+-   Tungsten execution engine
+-   Shuffles and stage boundaries
+-   Narrow and wide dependencies
+-   Memory management fundamentals
+-   Fault tolerance and lineage
+-   Spark UI fundamentals
+
+## Module 12 --- Integrated PySpark Interview Practice
+
+Apply concepts from the earlier modules to practical Data Engineering
+scenarios and interview-style questions.
+
+Topics:
+
+-   DataFrame transformation challenges
+-   Complex filtering and aggregation problems
+-   Multi-DataFrame join scenarios
+-   Window-function interview problems
+-   Deduplication and latest-record selection
+-   Data-quality and NULL-handling scenarios
+-   Incremental load and CDC scenarios
+-   SCD Type 1 and Type 2 scenarios
+-   File ingestion and output-format questions
+-   Performance troubleshooting scenarios
+-   Debugging incorrect PySpark results
+-   Explaining solution choices and trade-offs
+
+------------------------------------------------------------------------
+
+# Common PySpark Setup
+
+The following setup is used in the local coding exercises:
+
+``` python
+from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+
+spark = SparkSession.builder.getOrCreate()
+```
+
+For DataFrame output, use:
+
+``` python
+df.show()
+df.printSchema()
+```
+
+## Exercise Format
+
+Each coding problem follows a practical learning approach:
+
+1.  **Concept:** Understand the PySpark feature and when to use it.
+2.  **Example:** Review a complete runnable example with its dataset.
+3.  **Expected output:** Compare the result with the expected DataFrame
+    output.
+4.  **Practice:** Solve a separate exercise using the same or a new
+    dataset.
+5.  **Code review:** Check correctness, understand errors, and discuss
+    alternative approaches.
+
+The focus is on understanding the behavior of PySpark transformations
+and applying them to realistic Data Engineering use cases.
+
+------------------------------------------------------------------------
+
+## Technologies and APIs Covered
+
+-   Python
+-   Apache Spark
+-   PySpark DataFrame API
+-   Spark SQL functions
+-   Window functions
+-   CSV, JSON, and Parquet
+-   ETL and incremental data processing
+-   CDC and SCD concepts
+-   Data quality and validation
+-   Spark execution and performance optimization
+
+## Repository Structure
+
+A suggested folder structure for organizing the exercises:
+
+``` text
+pyspark-100/
+│
+├── Module 1 - Fundamentals/
+├── Module 2 - Filtering and Sorting/
+├── Module 3 - Aggregations and Group By/
+├── Module 4 - Joins/
+├── Module 5 - Conditions Strings Dates and NULLs/
+├── Module 6 - Window Functions/
+├── Module 7 - Deduplication and Data Quality/
+├── Module 8 - ETL CDC and SCD/
+├── Module 9 - Reading and Writing Data/
+├── Module 10 - Performance Optimization/
+├── Module 11 - Spark Architecture and Core Concepts/
+└── Module 12 - Integrated Interview Practice/
+```
+
+------------------------------------------------------------------------
+
+*This repository is intended as a practical PySpark learning and
+interview-preparation resource.*
