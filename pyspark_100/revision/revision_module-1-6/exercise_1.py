@@ -23,7 +23,7 @@ Your tasks:
 
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
-from pyspark.sql.functions import to_date
+from pyspark.sql.functions import to_date, current_date
 from pyspark.sql.window import Window
 
 spark = SparkSession.builder.getOrCreate()
@@ -123,10 +123,12 @@ agg_df = result_df.groupBy("department").agg(
 agg_df.show()
 
 #10
-
-result_df = result_df.withColumn(
-    "years",
-    F.year("joining_date")
+result_df = employees_df.withColumn(
+    "days_of_service",
+    F.date_diff(F.current_date(), F.col("joining_date"))
+).withColumn(
+    "years_of_service",
+    F.floor(F.col("days_of_service")/365)
 )
 
-result_df.filter(F.col("years") > 3).show()
+result_df.filter(F.col("years_of_service") > 3).show()
