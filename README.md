@@ -1,18 +1,18 @@
 # 🔥 PySpark Basics & Practice
 
-> A comprehensive, hands-on collection of **99 PySpark scripts**, practice questions, and interview prep — built from the ground up while learning Apache Spark with a focus on Data Engineering workflows.
+> A comprehensive, hands-on collection of **120 PySpark scripts**, practice questions, and interview prep — built from the ground up while learning Apache Spark with a focus on Data Engineering workflows.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-3.5.1-orange?logo=apachespark&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Scripts](https://img.shields.io/badge/Scripts-99-blueviolet)
+![Scripts](https://img.shields.io/badge/Scripts-120-blueviolet)
 
 ---
 
 ## 📖 About
 
-This repository documents my journey learning **Apache Spark** through PySpark. It covers core concepts, file format operations, advanced transformations, and curated practice questions — including a structured **100-problem curriculum** (6 modules completed so far) and a dedicated section for **interview-style problems**. All code is written in Python and tested in a local Spark environment.
+This repository documents my journey learning **Apache Spark** through PySpark. It covers core concepts, file format operations, advanced transformations, and curated practice questions — including a structured **100-problem curriculum** (7 modules completed so far) and a dedicated section for **interview-style problems**. All code is written in Python and tested in a local Spark environment.
 
 ---
 
@@ -23,7 +23,7 @@ pyspark_basics/
 │
 ├── pyspark.ipynb                    # Core PySpark notebook — fundamentals & experiments
 │
-├── pyspark_100/                     # 📚 Structured 100-problem curriculum (6 modules)
+├── pyspark_100/                     # 📚 Structured 100-problem curriculum (7 modules)
 │   ├── module_info.md               #    Complete roadmap & module descriptions
 │   ├── Module 1 — Fundamentals/     #    10 exercises: DataFrames, schemas, columns
 │   ├── Module 2 — Filtering and Sorting/  # 10 exercises: filter, sort, distinct
@@ -31,7 +31,8 @@ pyspark_basics/
 │   ├── Module 4 — Joins/            #    9 exercises: all join types
 │   ├── Module 5 — Conditions, Strings, Dates and NULLs/  # 11 exercises
 │   ├── Module 6 — Window Functions/  #   15 exercises: rank, lag, lead, running totals
-│   └── revision/                    #    Revision scripts for modules 1–3
+│   ├── Module 7 — Working with Nested Data/  # 10 exercises: arrays, maps, structs, JSON
+│   └── revision/                    #    Revision scripts for modules 1–3, 1–6, and 7
 │
 ├── joinsInPyspark/                  # 🔗 Deep-dive into PySpark joins
 │   ├── Basic Joins.py               #    inner, left, left_anti joins
@@ -122,6 +123,16 @@ pyspark_basics/
 - **Date functions** — `to_date`, `year`, `month`, `datediff`, `current_date`
 - **NULL handling** — `isNull`, `isNotNull`, `fillna`, `dropna`, `coalesce`
 
+### Working with Nested Data
+- **ArrayType** — creating, sizing, filtering with `array_contains`, `explode`
+- **Array extraction** — `element_at`, `slice` for positional access
+- **Array transformations** — `array_distinct`, `array_sort`, `array_union`
+- **MapType** — `map_keys`, `map_values`, `element_at` on maps, `map_contains_key`
+- **StructType (nested)** — nested schema definition, dot-notation field access (`col("address.city")`)
+- **JSON strings** — `from_json` to parse embedded JSON into StructType
+- **Nested JSON with arrays** — `from_json` + `explode` pipeline
+- **explode vs explode_outer** — handling empty arrays and NULLs
+
 ### File Format Operations
 - **Parquet** — read, write, predicate pushdown, `explain()` physical plans
 - **JSON** — flat & multiline reads, `explode` for arrays
@@ -142,7 +153,7 @@ pyspark_basics/
 
 ## 📚 PySpark 100 Curriculum
 
-The `pyspark_100/` directory contains a structured learning path with **65 exercises completed** across 6 modules (plus revision scripts):
+The `pyspark_100/` directory contains a structured learning path with **75+ exercises completed** across 7 modules (plus revision scripts):
 
 | Module | Topic | Exercises | Key APIs |
 |--------|-------|-----------|----------|
@@ -152,7 +163,10 @@ The `pyspark_100/` directory contains a structured learning path with **65 exerc
 | **Module 4** | Joins | 9 | `join` (inner, left, right, full, semi, anti), `alias`, self-join |
 | **Module 5** | Conditions, Strings, Dates & NULLs | 11 | `when`, `otherwise`, `upper`, `trim`, `regexp_replace`, `to_date`, `datediff`, `fillna`, `coalesce` |
 | **Module 6** | Window Functions | 15 | `Window.partitionBy`, `row_number`, `rank`, `dense_rank`, `lag`, `lead`, `first`, `last` |
-| **Revision** | Modules 1–3 Review | 4 | Comprehensive revision + final test |
+| **Module 7** | Working with Nested Data | 10 | `ArrayType`, `MapType`, `StructType`, `explode`, `explode_outer`, `from_json`, `element_at`, `slice`, `array_distinct`, `array_sort`, `array_union`, `map_keys`, `map_values`, `map_contains_key` |
+| **Revision** | Modules 1–3 | 4 | Comprehensive revision + final test |
+| **Revision** | Modules 1–6 | 6 | End-to-end exercises: data cleaning, joins, aggregations, window functions, dedup |
+| **Revision** | Module 7 | 5 | Arrays, maps, structs, JSON parsing, explode_outer |
 
 > 📖 See [`pyspark_100/module_info.md`](pyspark_100/module_info.md) for the full curriculum roadmap covering all 12 planned modules.
 
@@ -301,13 +315,14 @@ monthly_summary = df.groupBy("region", "product", "year", "month") \
 - [x] All join types + advanced patterns (Module 4 + joinsInPyspark)
 - [x] Conditions, strings, dates & NULLs (Module 5)
 - [x] Window functions deep-dive (Module 6 + windowFunctions)
+- [x] Working with nested data — arrays, maps, structs, JSON (Module 7)
 - [x] Parquet and JSON file I/O
 - [x] Partitioning & bucketing
 - [x] SCD Type 2 implementation
 - [x] Repartition vs coalesce
 - [x] Practice question set
 - [x] Interview question set with explanations
-- [ ] Module 7 — Deduplication & Data Quality
+- [ ] Module 8 — Deduplication & Data Quality
 - [ ] Module 8 — ETL, CDC & SCD
 - [ ] Module 9 — Reading & Writing Data (CSV, JSON, Parquet, Delta)
 - [ ] Module 10 — Performance Optimization
@@ -322,9 +337,9 @@ monthly_summary = df.groupBy("region", "product", "year", "month") \
 
 | Metric | Count |
 |--------|-------|
-| Total Python scripts | **99** |
-| Curriculum modules completed | **6 / 12** |
-| Curriculum exercises completed | **65+** |
+| Total Python scripts | **120** |
+| Curriculum modules completed | **7 / 12** |
+| Curriculum exercises completed | **75+** |
 | Interview problems | **6** (with explanations) |
 | Practice questions | **12+** |
 | Data engineering patterns | **5** (SCD2, partitioning, bucketing, repartition, predicate pushdown) |
